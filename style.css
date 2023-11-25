@@ -2,7 +2,7 @@ html, body {
     min-height: 100%;
 }
 body {
-   background-image: url('./img/background.gif');
+   background-image: url('./img/background.png');
    background-repeat : no-repeat;
    background-position:right bottom; 
    background-size : 30%;
