@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>라라는 바보야</title>
+		<meta charset="utf-8">
+		<script async src="opencv.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<h2>라라 분출 타이머</h2>
+		<p style="margin-left:10px; font-size:1.2em" id="statusParagraph">화면공유: <span id="statusPrint" style="color:red">off</span></p>
+		<button id="screenSharingButton">화면공유 시작하기</button>
+		<br>
+		<button id="screenmonitoringButton" style="display: none;">공유화면 미리보기</button>
+		<video id="screen" autoplay style="display: none;"></video>
+		<canvas id="canvas" style="display: none; clip: rect(0px, 1920px, 360px, 0px);"></canvas>
+		<button id="pipActiveButton" style="display: none;">pip 모드 활성화</button>
+		<canvas id="statusCanvas" width="600" height="230" style="display: none;"></canvas>
+		<video id="pipVideo" width="600" height="230" autoplay playsinline style="display: none; background-color: #333;"></video>
+
+		<img id="riverImg" src="./img/river.png" style="display: none;"/>
+		<img id="windImg" src="./img/wind.png" style="display: none;"/>
+		<img id="sunImg" src="./img/sun.png" style="display: none;"/>
+		<img id="riverSrc" src="./dataImg/river.png" style="display: none;"/>
+		<img id="windSrc" src="./dataImg/wind.png" style="display: none;"/>
+		<img id="sunSrc" src="./dataImg/sun.png" style="display: none;"/>
+
+		<script type="text/javascript" src="main.js"></script>
+	</body>
+</html>

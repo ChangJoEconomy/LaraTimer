@@ -1,0 +1,32 @@
+html, body {
+    min-height: 100%;
+}
+body {
+   background-image: url('./img/background.gif');
+   background-repeat : no-repeat;
+   background-position:right bottom; 
+   background-size : 30%;
+   background-color: rgb(252, 250, 251);
+}
+
+#statusParagraph {
+    font-weight: bold;
+}
+
+#screenSharingButton, #screenmonitoringButton, #pipActiveButton {
+    width:200px;
+    border: none;
+    color:#fff;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius:10px;
+}
+#screenSharingButton {background-color: #f8585b;}
+#screenmonitoringButton {background-color: rgb(53, 117, 251);}
+#pipActiveButton {background-color: #ffc0cb}
+#screenSharingButton:hover, #screenmonitoringButton:hover, #pipActiveButton:hover {background-color: rgb(145, 221, 100);}
