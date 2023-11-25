@@ -9,14 +9,19 @@ const statusCtx = statusCanvas.getContext('2d', { willReadFrequently: true });
 let cnt = 0;
 
 // 남은 시간, 모든 분출지속시간은 18초라 가정
-let riverRmnTime = 0;
-let sunRmnTime = 0;
-let windRmnTime = 0;
+let riverRmnTime = new Date(2023);
+let sunRmnTime = new Date(2023);
+let windRmnTime = new Date(2023);
 
 setInterval(drawStatusCanvas, 1000);
 pipVideo.srcObject = statusCanvas.captureStream();
 
 function drawStatusCanvas() {
+    let nowTime = new Date();
+    const riverTime = Math.max(0, (17 - parseInt((nowTime.getTime() - riverRmnTime.getTime())/1000)));
+    const sunTime = Math.max(0, (17 - parseInt((nowTime.getTime() - sunRmnTime.getTime())/1000)));
+    const windTime = Math.max(0, (17 - parseInt((nowTime.getTime() - windRmnTime.getTime())/1000)));
+
     statusCtx.clearRect(0, 0, statusCanvas.width, statusCanvas.height);
     statusCtx.fillStyle = "#132043";
     statusCtx.fillRect(0, 0, 600, 230)
@@ -28,19 +33,15 @@ function drawStatusCanvas() {
     // 강
     statusCtx.font = "70pt Nanum Gothic";
 	statusCtx.fillStyle = "white";
-	statusCtx.fillText(riverRmnTime,riverRmnTime>=10?40:60, 210); // 2:40, 1:60
+	statusCtx.fillText(riverTime,riverTime>=10?40:60, 210); // 2:40, 1:60
     // 해
     statusCtx.font = "70pt Nanum Gothic";
 	statusCtx.fillStyle = "white";
-	statusCtx.fillText(sunRmnTime, sunRmnTime>=10?250:270, 210);  //2:250, 1:270
+	statusCtx.fillText(sunTime, sunTime>=10?250:270, 210);  //2:250, 1:270
     // 바람
     statusCtx.font = "70pt Nanum Gothic";
 	statusCtx.fillStyle = "white";
-	statusCtx.fillText(windRmnTime, windRmnTime>=10?440:460, 210);  // 2:440, 1:460
-
-    if(riverRmnTime>0) riverRmnTime--;
-    if(sunRmnTime>0) sunRmnTime--;
-    if(windRmnTime>0) windRmnTime--;
+	statusCtx.fillText(windTime, windTime>=10?440:460, 210);  // 2:440, 1:460
 }
 
 function chkScreen(target) {
@@ -61,13 +62,13 @@ function update() {
     if(cnt==3) cnt = 0;
 
     if(cnt==0 && chkScreen("riverSrc") > 0.93) {
-        riverRmnTime = 16;
+        riverRmnTime = new Date();
     }
     if(cnt==1 && chkScreen("sunSrc") > 0.93) {
-        sunRmnTime = 16;
+        sunRmnTime = new Date();
     }
     if(cnt==2 && chkScreen("windSrc") > 0.93) {
-        windRmnTime = 16;
+        windRmnTime = new Date();
     }
 }
 
