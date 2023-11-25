@@ -44,9 +44,9 @@ function drawStatusCanvas() {
 }
 
 function chkScreen(target) {
-    let src = cv.imread(canvas);
+    let src = cv.imread(canvas, cv.COLOR_BGR2GRAY);
     let riverElement = document.getElementById(target);
-    let templ = cv.imread(riverElement);
+    let templ = cv.imread(riverElement, cv.COLOR_BGR2GRAY);
     let dst = new cv.Mat();
     let mask = new cv.Mat();
     cv.matchTemplate(src, templ, dst, cv.TM_CCOEFF_NORMED, mask);
