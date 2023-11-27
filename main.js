@@ -17,9 +17,9 @@ setInterval(drawStatusCanvas, 1000);
 
 function drawStatusCanvas() {
     let nowTime = new Date();
-    const riverTime = Math.max(0, (17 - parseInt((nowTime.getTime() - riverRmnTime.getTime())/1000)));
-    const sunTime = Math.max(0, (17 - parseInt((nowTime.getTime() - sunRmnTime.getTime())/1000)));
-    const windTime = Math.max(0, (17 - parseInt((nowTime.getTime() - windRmnTime.getTime())/1000)));
+    const riverTime = Math.max(0, (16 - parseInt((nowTime.getTime() - riverRmnTime.getTime())/1000)));
+    const sunTime = Math.max(0, (16 - parseInt((nowTime.getTime() - sunRmnTime.getTime())/1000)));
+    const windTime = Math.max(0, (16 - parseInt((nowTime.getTime() - windRmnTime.getTime())/1000)));
 
     statusCtx.clearRect(0, 0, statusCanvas.width, statusCanvas.height);
     statusCtx.fillStyle = "#132043";
