@@ -13,7 +13,7 @@ let riverRmnTime = new Date(2023);
 let sunRmnTime = new Date(2023);
 let windRmnTime = new Date(2023);
 
-setInterval(drawStatusCanvas, 500);
+setInterval(drawStatusCanvas, 200);
 
 function drawStatusCanvas() {
     let nowTime = new Date();
