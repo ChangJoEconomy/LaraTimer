@@ -13,10 +13,11 @@ let riverRmnTime = new Date(2023);
 let sunRmnTime = new Date(2023);
 let windRmnTime = new Date(2023);
 
-setInterval(drawStatusCanvas, 250);
+setInterval(drawStatusCanvas, 100);
 
 function drawStatusCanvas() {
     let nowTime = new Date();
+    nowTime.setMilliseconds(0);
     const riverTime = Math.max(0, (16 - parseInt((nowTime.getTime() - riverRmnTime.getTime())/1000)));
     const sunTime = Math.max(0, (16 - parseInt((nowTime.getTime() - sunRmnTime.getTime())/1000)));
     const windTime = Math.max(0, (16 - parseInt((nowTime.getTime() - windRmnTime.getTime())/1000)));
@@ -62,12 +63,15 @@ function update() {
 
     if(cnt==0 && chkScreen("riverSrc") > 0.9) {
         riverRmnTime = new Date();
+        riverRmnTime.setMilliseconds(0);
     }
     if(cnt==1 && chkScreen("sunSrc") > 0.9) {
         sunRmnTime = new Date();
+        sunRmnTime.setMilliseconds(0);
     }
     if(cnt==2 && chkScreen("windSrc") > 0.9) {
         windRmnTime = new Date();
+        windRmnTime.setMilliseconds(0);
     }
 }
 
