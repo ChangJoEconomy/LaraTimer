@@ -14,7 +14,6 @@ let sunRmnTime = new Date(2023);
 let windRmnTime = new Date(2023);
 
 setInterval(drawStatusCanvas, 1000);
-pipVideo.srcObject = statusCanvas.captureStream();
 
 function drawStatusCanvas() {
     let nowTime = new Date();
@@ -101,6 +100,8 @@ document.getElementById("screenSharingButton").addEventListener("click", functio
                 pipButton.style.display = "block";
             if(statusCanvas.style.display == "none")
                 statusCanvas.style.display = "block";
+
+            pipVideo.srcObject = statusCanvas.captureStream();
         })
         .catch(error => {
             document.getElementById("statusPrint").innerText = "실패!(" + error + ")";
