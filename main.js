@@ -6,6 +6,9 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d', { willReadFrequently: true });
 const statusCanvas = document.getElementById("statusCanvas");
 const statusCtx = statusCanvas.getContext('2d', { willReadFrequently: true });
+const riverImgElement = document.getElementById("riverImg");
+const sunImgElement = document.getElementById("sunImg");
+const windImgElement = document.getElementById("windImg");
 let cnt = 0;
 
 // 남은 시간, 모든 분출지속시간은 18초라 가정
@@ -31,9 +34,9 @@ function drawStatusCanvas() {
     statusCtx.fillStyle = "#132043";
     statusCtx.fillRect(0, 0, 600, 230)
     // 정령 이미지
-    statusCtx.drawImage(document.getElementById("riverImg"), 30, 20)  // x:35(mid:100, width:131)
-    statusCtx.drawImage(document.getElementById("sunImg"), 220, 10)   // x:228(mid:300, width:143)
-    statusCtx.drawImage(document.getElementById("windImg"), 421, 20)  // x:421(mid:500, width:158)
+    statusCtx.drawImage(riverImgElement, 30, 20)  // x:35(mid:100, width:131)
+    statusCtx.drawImage(sunImgElement, 220, 10)   // x:228(mid:300, width:143)
+    statusCtx.drawImage(windImgElement, 421, 20)  // x:421(mid:500, width:158)
     // 남은 시간 업데이트
     // 강
     statusCtx.font = "70pt Nanum Gothic";
